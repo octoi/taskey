@@ -1,8 +1,8 @@
-import 'package:app/screens/login.dart';
+import 'package:app/screens/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Taskey());
+  runApp(const Taskey());
 }
 
 class Taskey extends StatelessWidget {
@@ -12,7 +12,7 @@ class Taskey extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: App(),
     );
   }
 }
