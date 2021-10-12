@@ -1,5 +1,7 @@
 import 'package:app/screens/home.dart';
 import 'package:app/utils/colors.dart';
+import 'package:app/utils/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +74,7 @@ class _LoginButtonState extends State<LoginButton> {
       });
       if (isSignedIn) {
         // if so, return the current user
-        user = _auth.currentUser!;
+        user = getUser;
       } else {
         final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
         final GoogleSignInAuthentication googleAuth =
@@ -93,15 +95,23 @@ class _LoginButtonState extends State<LoginButton> {
 
     void loginWithGoogle() async {
       User user = await _handleSignIn();
+
+      CollectionReference users = FirebaseFirestore.instance.collection(
+        'users',
+      );
+
+      await users.add({
+        'name': user.displayName,
+        'email': user.email,
+        'profile': user.photoURL,
+      });
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => const Home(),
         ),
       );
-      // setState(() {
-      //   isUserSignedIn = userSignedIn == null ? true : false;
-      // });
     }
 
     return Material(
