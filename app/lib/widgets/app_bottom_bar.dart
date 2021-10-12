@@ -13,8 +13,9 @@ class AppBottomBar extends StatelessWidget {
       color: appSecondaryColor,
       child: TabBar(
         padding: const EdgeInsets.all(10.0),
-        indicatorColor: appSecondaryColor,
-        unselectedLabelColor: appPrimaryColor,
+        indicatorColor: appAccentColor,
+        indicatorSize: TabBarIndicatorSize.label,
+        unselectedLabelColor: appAccentColor.withOpacity(0.3),
         labelColor: appAccentColor,
         tabs: [
           const Tab(icon: Icon(Icons.format_list_bulleted)),
