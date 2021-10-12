@@ -1,4 +1,5 @@
 import 'package:app/utils/colors.dart';
+import 'package:app/widgets/todo.dart';
 import 'package:flutter/material.dart';
 
 class TodoList extends StatelessWidget {
@@ -11,8 +12,17 @@ class TodoList extends StatelessWidget {
       child: Stack(
         children: [
           SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
-              children: [],
+              children: List.generate(20, (index) {
+                return Todo(
+                  id: index.toString(),
+                  key: ValueKey(index),
+                  text: 'Design & develop this app',
+                  isResolved: index % 2 == 0,
+                );
+              }),
             ),
           ),
           Positioned(
