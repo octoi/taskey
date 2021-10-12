@@ -73,8 +73,7 @@ class _LoginButtonState extends State<LoginButton> {
         isUserSignedIn = isSignedIn;
       });
       if (isSignedIn) {
-        // if so, return the current user
-        user = getUser;
+        user = getUser!;
       } else {
         final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
         final GoogleSignInAuthentication googleAuth =
@@ -100,7 +99,7 @@ class _LoginButtonState extends State<LoginButton> {
         'users',
       );
 
-      await users.add({
+      users.doc(user.email).set({
         'name': user.displayName,
         'email': user.email,
         'profile': user.photoURL,

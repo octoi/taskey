@@ -4,4 +4,4 @@ final FirebaseAuth auth = FirebaseAuth.instance;
 
 final user = auth.currentUser;
 
-get getUser => user!;
+get getUser => user;
