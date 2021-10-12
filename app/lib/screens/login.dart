@@ -1,4 +1,4 @@
-import 'package:app/screens/dummy_screen.dart';
+import 'package:app/screens/home.dart';
 import 'package:app/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -96,7 +96,7 @@ class _LoginButtonState extends State<LoginButton> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => DummyScreen(),
+          builder: (context) => Home(),
         ),
       );
       // setState(() {
