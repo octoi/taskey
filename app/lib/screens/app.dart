@@ -1,3 +1,4 @@
+import 'package:app/screens/home.dart';
 import 'package:app/screens/loading.dart';
 import 'package:app/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
                   if (userSnapshot.connectionState == ConnectionState.waiting) {
                     return const Loading();
                   }
-                  return userSnapshot.hasData ? const Login() : const Login();
+                  return userSnapshot.hasData ? const Home() : const Login();
                 },
               ),
       ),
