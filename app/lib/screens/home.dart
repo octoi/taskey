@@ -1,6 +1,7 @@
 import 'package:app/utils/colors.dart';
 import 'package:app/widgets/app_bottom_bar.dart';
 import 'package:app/widgets/todo_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -24,6 +25,15 @@ class Home extends StatelessWidget {
               fontWeight: FontWeight.normal,
             ),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                final FirebaseAuth auth = FirebaseAuth.instance;
+                auth.signOut();
+              },
+            )
+          ],
         ),
         body: const TabBarView(children: [
           TodoList(),
