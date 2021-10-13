@@ -1,4 +1,5 @@
 import 'package:app/utils/colors.dart';
+import 'package:app/widgets/fab.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -14,12 +15,10 @@ class Home extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Taskey',
-          style: TextStyle(
-            color: appAccentColor,
-            fontWeight: FontWeight.normal,
-          ),
+          style: TextStyle(color: appAccentColor),
         ),
       ),
+      floatingActionButton: Fab(),
     );
   }
 }
