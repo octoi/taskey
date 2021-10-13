@@ -47,6 +47,9 @@ class _TodoItemState extends State<TodoItem> {
           isResolved = !isResolved;
         });
       },
+      onDoubleTap: () {
+        print('Hello world');
+      },
       child: Todo(
         id: widget.index.toString(),
         key: ValueKey(widget.index),

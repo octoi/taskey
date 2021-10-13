@@ -27,7 +27,7 @@ class Todo extends StatelessWidget {
         alignment: Alignment.centerRight,
         child: const Icon(
           Icons.delete_outline,
-          color: appErrorColor,
+          color: appAccentColor,
           size: 30.0,
         ),
       ),

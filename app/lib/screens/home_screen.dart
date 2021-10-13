@@ -19,8 +19,8 @@ class Home extends StatelessWidget {
           style: TextStyle(color: appAccentColor),
         ),
       ),
-      floatingActionButton: Fab(),
-      body: TodoList(),
+      floatingActionButton: const Fab(),
+      body: const TodoList(),
     );
   }
 }
